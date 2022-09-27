@@ -3,11 +3,14 @@ function createApp() {
 	const body = document.querySelector("body");
 
 	const header = document.createElement("header");
+	const headerDiv = document.createElement("div");
+	headerDiv.classList.add("header-div");
 	const headerTitle = document.createElement("h1");
 	headerTitle.innerHTML = "titre à définir";
 
 	body.appendChild(header);
-	header.appendChild(headerTitle);
+	header.appendChild(headerDiv);
+	headerDiv.appendChild(headerTitle);
 
 	const footer = document.createElement("Footer");
 	const footerTitle = document.createElement("h2");
