@@ -8,5 +8,11 @@ function createApp() {
 
 	body.appendChild(header);
 	header.appendChild(headerTitle);
+
+	const footer = document.createElement("Footer");
+	const footerTitle = document.createElement("h2");
+	footerTitle.innerHTML = "footer en cours...";
+	body.appendChild(footer);
+	footer.appendChild(footerTitle);
 }
 createApp();
