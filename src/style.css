@@ -41,6 +41,27 @@
   .main-app{
       margin-top: 150px;
   }
+  .intro{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  .text-intro{
+    text-align: center;
+    font-size: medium;
+    font-weight: bolder;
+
+  }
+  .all_button{
+  }
+  .filter-button{
+    display: inline-block;
+    border: none;
+    border-radius: 0  40px 40px 40px;
+    height: 80px;
+    background-color: rgb(41, 79, 136);
+    width: 50%;
+    transition: 0.2s ease-in;
+    margin-bottom: 10px;
+  }
   .cards {
     display: flex;
     justify-content: center;
@@ -52,6 +73,7 @@
     margin: 20px;
     display: flex;
     flex-direction: column;
+    background: linear-gradient(skyBlue,lightCyan,skyBlue, rgb(0, 119, 255));
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px;
     transition: 0.5s all;
   }
@@ -59,10 +81,13 @@
     border-radius: 100px 100px 0 100px;
     background-size: cover;
     background-position: center;
-    filter: opacity(75%);
     height: 200px;
     width: 200px;
     transition: 0.5s all;
+  }
+  .cardImage:hover {
+    filter: grayscale(80%);
+    opacity: 60%;
   }
   
   .cardBody {
