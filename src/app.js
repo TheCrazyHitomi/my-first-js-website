@@ -66,6 +66,9 @@ function createApp() {
 	const allButton = document.createElement("div");
 	allButton.classList.add("all-button");
 
+	const boxButton = document.createElement("div");
+	boxButton.classList.add("box-button");
+
 	const allcatsButton = document.createElement("button");
 	allcatsButton.classList.add("filter-button");
 	allcatsButton.innerHTML = "tout les chatons";
@@ -147,10 +150,11 @@ function createApp() {
 	mainApp.appendChild(intro);
 	intro.appendChild(textIntro);
 	intro.appendChild(allButton);
-	allButton.appendChild(allcatsButton);
-	allButton.appendChild(europeanButton);
-	allButton.appendChild(bengalButton);
-	allButton.appendChild(sphynxButton);
+	allButton.appendChild(boxButton);
+	boxButton.appendChild(allcatsButton);
+	boxButton.appendChild(europeanButton);
+	boxButton.appendChild(bengalButton);
+	boxButton.appendChild(sphynxButton);
 
 	const cards = document.createElement("div");
 	cards.classList.add("cards");
