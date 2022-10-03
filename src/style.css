@@ -27,15 +27,14 @@
     /* transition: 1s all; */
 }
 .header-div{
-    background-color: rgba(35, 115, 189, 0.5 );
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
+    background: linear-gradient(skyBlue,lightCyan,rgb(135, 167, 235), rgb(0, 47, 255));
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.5);
-    border: solid 1px rgb(137, 85, 161);
     border-radius: 0 50px 0 50px;
-    width:70%;
+    width:90%;
     
   }
   .main-app{
@@ -86,7 +85,7 @@
     display: flex;
     flex-direction: column;
     background: linear-gradient(skyBlue,lightCyan,skyBlue, rgb(0, 119, 255));
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 12px;
+    box-shadow: rgb(17, 34, 51, 0.8) 7px 8px 12px;
     transition: 0.5s all;
   }
   .cardImage {
@@ -124,13 +123,16 @@
     border: none;
     border-radius: 0  40px 40px 40px;
     height: 80px;
-    background-color: rgb(41, 79, 136);
+    background: radial-gradient(at 0% 0%, rgb(105, 135, 190) 20px, rgb(37, 58, 116) 60%, #042650 80%);
     width: 50%;
     transition: 0.2s ease-in;
     margin-bottom: 10px;
+    color: rgb(151, 182, 240);
+    box-shadow: rgb(43, 63, 83, 0.5) 7px 8px 12px;
   }
   .cardButton:hover {
-    background-color: rgb(183, 175, 219);
+    background: radial-gradient(at 0% 0%, rgb(158, 187, 241) 20px, rgb(61, 86, 155) 60%, #103666 80%);
+    color: rgb(117, 151, 209);
   }
 
   footer {
@@ -138,10 +140,11 @@
     height: 100px;
     width: 100%;
     border-radius: 100px 100px 0 0;
-    background-color: rgb(20, 16, 73);
-    color: cornflowerblue;
+    background: linear-gradient(rgb(20, 16, 73), rgb(86, 145, 155), rgb(54, 112, 122));
+    color: rgb(30, 51, 88);
     font-style: oblique;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
