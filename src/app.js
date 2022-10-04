@@ -41,7 +41,22 @@ const animalsToAdopt = [
 	},
 ];
 
+const menuItems = [
+	{ id: "item-1", name: "item 1", link: "#" },
+	{ id: "item-2", name: "item 2", link: "#" },
+	{ id: "item-3", name: "item 3", link: "#" },
+];
+
+const createBurger = () => {
+	return burgerMenu;
+};
+
+const createMenu = (menu) => {
+	return globalMenu;
+};
+
 function createApp() {
+	let menuIsVisible = false;
 	// selecting the body tag and creating the header and main div
 	const body = document.querySelector("body");
 
@@ -61,7 +76,7 @@ function createApp() {
 	const textIntro = document.createElement("p");
 	textIntro.classList.add("text-intro");
 	textIntro.innerHTML =
-		"Bienvenue à la chaterie de la <em> petite sorcière</em>.";
+		"Bienvenue à la chatterie de la <em> petite sorcière</em>.";
 
 	const allButton = document.createElement("div");
 	allButton.classList.add("all-button");
@@ -143,9 +158,56 @@ function createApp() {
 			});
 	};
 
+	const globalMenu = document.createElement("div");
+	globalMenu.classList.add("global-menu");
+	menuItems.forEach((item) => {
+		const menuElement = document.createElement("a");
+		menuElement.classList.add("menu-element");
+		menuElement.setAttribute("href", item.link);
+		menuElement.setAttribute("id", item.id);
+		menuElement.innerHTML = item.name;
+		menuElement.addEventListener("click", () => {
+			menuIsVisible = !menuIsVisible;
+		});
+		globalMenu.appendChild(menuElement);
+	});
+
+	body.appendChild(globalMenu);
+
+	const burgerMenu = document.createElement("div");
+	const lineUp = document.createElement("div");
+	const lineMiddle = document.createElement("div");
+	const lineDown = document.createElement("div");
+	burgerMenu.appendChild(lineUp);
+	burgerMenu.appendChild(lineMiddle);
+	burgerMenu.appendChild(lineDown);
+
+	burgerMenu.classList.add("burger-menu");
+	lineUp.classList.add("line-up");
+	lineMiddle.classList.add("line-middle");
+	lineDown.classList.add("line-down");
+
+	burgerMenu.addEventListener("click", () => {
+		// set boolean true or false;
+		menuIsVisible = !menuIsVisible;
+		// if false
+		if (!menuIsVisible) {
+			// we remove the visible class
+			globalMenu.classList.remove("visible");
+		}
+		// if true
+		else if (menuIsVisible) {
+			// we set the visible class
+			globalMenu.classList.add("visible");
+		}
+	});
+
 	body.appendChild(header);
+
 	body.appendChild(mainApp);
+	headerDiv.appendChild(globalMenu);
 	header.appendChild(headerDiv);
+	headerDiv.appendChild(burgerMenu);
 	headerDiv.appendChild(headerTitle);
 	mainApp.appendChild(intro);
 	intro.appendChild(textIntro);
