@@ -41,37 +41,67 @@ const animalsToAdopt = [
 	},
 ];
 
-const menuItems = [
-	{ id: "item-1", name: "item 1", link: "#" },
-	{ id: "item-2", name: "item 2", link: "#" },
-	{ id: "item-3", name: "item 3", link: "#" },
-];
-
-const createBurger = () => {
-	return burgerMenu;
-};
-
-const createMenu = (menu) => {
-	return globalMenu;
-};
-
-function createApp() {
-	let menuIsVisible = false;
-	// selecting the body tag and creating the header and main div
-	const body = document.querySelector("body");
-
-	const header = document.createElement("header");
-	const headerDiv = document.createElement("div");
-	headerDiv.classList.add("header-div");
-	const headerTitle = document.createElement("h1");
-	headerTitle.classList.add("header-title");
-	headerTitle.innerHTML = "titre à définir";
-
-	const mainApp = document.createElement("div");
-	mainApp.classList.add("main-app");
+const createCatPage = () => {
+	const catsPage = document.createElement("div");
+	catsPage.classList.add("main-app");
 
 	const intro = document.createElement("div");
 	intro.classList.add("intro");
+
+	const cards = document.createElement("div");
+	cards.classList.add("cards");
+
+	function createCard(name, race, imageUrl) {
+		const card = document.createElement("div");
+		card.classList.add("card");
+
+		cards.appendChild(card);
+
+		const cardHeader = document.createElement("div");
+		cardHeader.classList.add("cardHeader");
+
+		card.appendChild(cardHeader);
+
+		const cardImage = document.createElement("div");
+		cardImage.classList.add("cardImage");
+		cardImage.style.backgroundImage = `url(${imageUrl})`;
+
+		cardHeader.appendChild(cardImage);
+
+		const cardBody = document.createElement("div");
+		cardBody.classList.add("cardBody");
+
+		card.appendChild(cardBody);
+
+		const cardTitle = document.createElement("h2");
+		cardTitle.classList.add("card-title");
+		cardTitle.setAttribute("id", `id-${name}`);
+		cardTitle.innerHTML = name;
+
+		cardBody.appendChild(cardTitle);
+
+		const cardRace = document.createElement("h3");
+		cardRace.classList.add("card-race");
+		cardRace.setAttribute("id", `id-${race}`);
+		cardRace.innerHTML = race;
+
+		cardBody.appendChild(cardRace);
+
+		const cardButton = document.createElement("button");
+		cardButton.classList.add("cardButton");
+		cardButton.innerHTML = "Adopt Me";
+
+		cardButton.addEventListener("click", function () {
+			alert("Bienvenue " + name + " dans ta nouvelle famille !");
+		});
+
+		cardBody.appendChild(cardButton);
+	}
+	// createCard(
+	// 	animalsToAdopt[0].name,
+	// 	animalsToAdopt[0].race,
+	// 	animalsToAdopt[0].picture
+	// );
 
 	const textIntro = document.createElement("p");
 	textIntro.classList.add("text-intro");
@@ -158,16 +188,105 @@ function createApp() {
 			});
 	};
 
+	catsPage.appendChild(intro);
+	intro.appendChild(textIntro);
+	intro.appendChild(allButton);
+	allButton.appendChild(boxButton);
+	boxButton.appendChild(allcatsButton);
+	boxButton.appendChild(europeanButton);
+	boxButton.appendChild(bengalButton);
+	boxButton.appendChild(sphynxButton);
+
+	catsPage.appendChild(cards);
+
+	return catsPage;
+};
+
+const createForm = () => {
+	const form = document.createElement("div");
+	form.classList.add("main-app");
+	const formTitle = document.createElement("h1");
+	formTitle.classList.add("form-title");
+	const formId = document.createElement("div");
+	formId.classList.add("form-Id");
+	const champNom = document.createElement("input");
+	champNom.classList.add("champ-nom");
+	champNom.setAttribute("type", "Nom");
+	champNom.setAttribute("name", "Nom");
+	champNom.setAttribute("placeholder", "Dupont");
+	const champPrenom = document.createElement("input");
+	champPrenom.setAttribute("type", "Prénom");
+	champPrenom.setAttribute("name", "Prénom");
+	champPrenom.setAttribute("placeholder", "José");
+	const formMessage = document.createElement("div");
+	formMessage.classList.add("form-message");
+	const champMail = document.createElement("input");
+	champMail.setAttribute("type", "email");
+	champMail.setAttribute("name", "E-mail");
+	champMail.setAttribute("placeholder", "josé-dupont@gmail.com");
+	const champObjet = document.createElement("input");
+	champObjet.setAttribute("type", "Objet");
+	champObjet.setAttribute("name", "Objet");
+	champObjet.setAttribute("placeholder", "Objet");
+	const champMessage = document.createElement("input");
+	champMessage.setAttribute("type", "Message");
+	champMessage.setAttribute("name", "Message");
+	champMessage.setAttribute("placeholder", "Votre message...");
+	const formButton = document.createElement("button");
+	formButton.classList.add("form-button");
+	formButton.innerHTML = "Envoyer";
+	formButton.addEventListener("click", function () {
+		alert("votre message a bien été envoyé.");
+	});
+
+	formId.appendChild(champNom);
+	formId.appendChild(champPrenom);
+
+	formMessage.appendChild(champMail);
+	formMessage.appendChild(champObjet);
+	formMessage.appendChild(champMessage);
+
+	form.appendChild(formTitle);
+	form.appendChild(formId);
+	form.appendChild(formMessage);
+	form.appendChild(formButton);
+
+	return form;
+};
+
+const menuItems = [
+	{ id: "item-1", name: "Tout les chats", link: createCatPage() },
+	{ id: "item-2", name: "Contactez nous", link: createForm() },
+	// { id: "item-3", name: "item 3", link: "test" },
+];
+
+function createMainApp() {
+	let menuIsVisible = false;
+	// selecting the body tag and creating the header and main div
+	const body = document.querySelector("body");
+
+	const header = document.createElement("header");
+	const headerDiv = document.createElement("div");
+	headerDiv.classList.add("header-div");
+	const headerTitle = document.createElement("h1");
+	headerTitle.classList.add("header-title");
+	headerTitle.innerHTML = "titre à définir";
+
+	const mainApp = document.createElement("div");
+	//mainApp.classList.add("main-app");
+
 	const globalMenu = document.createElement("div");
 	globalMenu.classList.add("global-menu");
 	menuItems.forEach((item) => {
-		const menuElement = document.createElement("a");
+		const menuElement = document.createElement("p");
 		menuElement.classList.add("menu-element");
-		menuElement.setAttribute("href", item.link);
+		//menuElement.setAttribute("href", item.link);
 		menuElement.setAttribute("id", item.id);
 		menuElement.innerHTML = item.name;
 		menuElement.addEventListener("click", () => {
-			menuIsVisible = !menuIsVisible;
+			menuIsVisible = false;
+			mainApp.innerHTML = "";
+			mainApp.appendChild(item.link);
 		});
 		globalMenu.appendChild(menuElement);
 	});
@@ -178,6 +297,7 @@ function createApp() {
 	const lineUp = document.createElement("div");
 	const lineMiddle = document.createElement("div");
 	const lineDown = document.createElement("div");
+
 	burgerMenu.appendChild(lineUp);
 	burgerMenu.appendChild(lineMiddle);
 	burgerMenu.appendChild(lineDown);
@@ -203,77 +323,11 @@ function createApp() {
 	});
 
 	body.appendChild(header);
-
 	body.appendChild(mainApp);
 	headerDiv.appendChild(globalMenu);
 	header.appendChild(headerDiv);
 	headerDiv.appendChild(burgerMenu);
 	headerDiv.appendChild(headerTitle);
-	mainApp.appendChild(intro);
-	intro.appendChild(textIntro);
-	intro.appendChild(allButton);
-	allButton.appendChild(boxButton);
-	boxButton.appendChild(allcatsButton);
-	boxButton.appendChild(europeanButton);
-	boxButton.appendChild(bengalButton);
-	boxButton.appendChild(sphynxButton);
-
-	const cards = document.createElement("div");
-	cards.classList.add("cards");
-
-	mainApp.appendChild(cards);
-
-	function createCard(name, race, imageUrl) {
-		const card = document.createElement("div");
-		card.classList.add("card");
-
-		cards.appendChild(card);
-
-		const cardHeader = document.createElement("div");
-		cardHeader.classList.add("cardHeader");
-
-		card.appendChild(cardHeader);
-
-		const cardImage = document.createElement("div");
-		cardImage.classList.add("cardImage");
-		cardImage.style.backgroundImage = `url(${imageUrl})`;
-
-		cardHeader.appendChild(cardImage);
-
-		const cardBody = document.createElement("div");
-		cardBody.classList.add("cardBody");
-
-		card.appendChild(cardBody);
-
-		const cardTitle = document.createElement("h2");
-		cardTitle.classList.add("card-title");
-		cardTitle.setAttribute("id", `id-${name}`);
-		cardTitle.innerHTML = name;
-
-		cardBody.appendChild(cardTitle);
-
-		const cardRace = document.createElement("h3");
-		cardRace.classList.add("card-race");
-		cardRace.setAttribute("id", `id-${race}`);
-		cardRace.innerHTML = race;
-
-		cardBody.appendChild(cardRace);
-
-		const cardButton = document.createElement("button");
-		cardButton.classList.add("cardButton");
-		cardButton.innerHTML = "Adopt Me";
-
-		cardButton.addEventListener("click", function () {
-			alert("Bienvenue " + name + " dans ta nouvelle famille !");
-		});
-
-		cardBody.appendChild(cardButton);
-	}
-	// createCard(
-	// 	animalsToAdopt[0].name,
-	// 	animalsToAdopt[0].race,
-	// 	animalsToAdopt[0].picture
-	// );
 
 	const footer = document.createElement("Footer");
 	const footerTitle = document.createElement("h2");
@@ -281,4 +335,4 @@ function createApp() {
 	body.appendChild(footer);
 	footer.appendChild(footerTitle);
 }
-createApp();
+createMainApp();
