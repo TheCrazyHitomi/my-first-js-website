@@ -89,7 +89,7 @@
 }
 .main-app{
       margin-top: 150px;
-      min-width: 500px;
+      min-height: auto;
 }
 
   .intro{
@@ -185,18 +185,56 @@
     background: radial-gradient(at 0% 0%, rgb(158, 187, 241) 20px, rgb(61, 86, 155) 60%, #103666 80%);
     color: rgb(117, 151, 209);
   }
-
-
+.form{
+  height: 60%;
+  width: 90%;
+  border:solid #042650;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form-id{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: space-between;
+}
+.form-nom{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.form-prenom{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.form-message{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+}
+.champ-message{
+  height: 200px;
+  width: 500px;
+}
   footer {
     bottom:0;
+    /* position: fixed; */
     height: 100px;
     width: 100%;
-    border-radius: 100px 100px 0 0;
+    border-radius: 0 70px 0 0;
     background: linear-gradient(rgb(20, 16, 73), rgb(86, 145, 155), rgb(54, 112, 122));
     color: rgb(30, 51, 88);
     font-style: oblique;
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }

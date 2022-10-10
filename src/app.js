@@ -205,12 +205,14 @@ const createCatPage = () => {
 const createForm = () => {
 	const form = document.createElement("div");
 	form.classList.add("main-app");
+	form.classList.add("form");
 	const formTitle = document.createElement("h1");
 	formTitle.classList.add("form-title");
+	formTitle.innerHTML = "Contactez-nous";
 	const formId = document.createElement("div");
-	formId.classList.add("form-Id");
+	formId.classList.add("form-id");
 	const labelId = document.createElement("div");
-	labelId.classList.add("label-Id");
+	labelId.classList.add("label-id");
 	const formNom = document.createElement("div");
 	formNom.classList.add("form-nom");
 	const labelNom = document.createElement("label");
@@ -244,7 +246,8 @@ const createForm = () => {
 	champObjet.setAttribute("placeholder", "Objet");
 	const labelMessage = document.createElement("label");
 	labelMessage.innerHTML = "Message :";
-	const champMessage = document.createElement("input");
+	const champMessage = document.createElement("textarea");
+	champMessage.classList.add("champ-message");
 	champMessage.setAttribute("type", "Message");
 	champMessage.setAttribute("name", "Message");
 	champMessage.setAttribute("placeholder", "Votre message...");
