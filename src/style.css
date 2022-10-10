@@ -87,10 +87,11 @@
   margin-top: 1,5em;
   transition: all 200ms;
 }
-  .main-app{
+.main-app{
       margin-top: 150px;
       min-width: 500px;
-  }
+}
+
   .intro{
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
@@ -184,6 +185,7 @@
     background: radial-gradient(at 0% 0%, rgb(158, 187, 241) 20px, rgb(61, 86, 155) 60%, #103666 80%);
     color: rgb(117, 151, 209);
   }
+
 
   footer {
     bottom:0;

@@ -209,6 +209,16 @@ const createForm = () => {
 	formTitle.classList.add("form-title");
 	const formId = document.createElement("div");
 	formId.classList.add("form-Id");
+	const labelId = document.createElement("div");
+	labelId.classList.add("label-Id");
+	const formNom = document.createElement("div");
+	formNom.classList.add("form-nom");
+	const labelNom = document.createElement("label");
+	labelNom.innerHTML = "Nom :";
+	const formPrenom = document.createElement("div");
+	formPrenom.classList.add("form-prenom");
+	const labelPrenom = document.createElement("label");
+	labelPrenom.innerHTML = "Prenom :";
 	const champNom = document.createElement("input");
 	champNom.classList.add("champ-nom");
 	champNom.setAttribute("type", "Nom");
@@ -220,14 +230,20 @@ const createForm = () => {
 	champPrenom.setAttribute("placeholder", "José");
 	const formMessage = document.createElement("div");
 	formMessage.classList.add("form-message");
-	const champMail = document.createElement("input");
-	champMail.setAttribute("type", "email");
-	champMail.setAttribute("name", "E-mail");
-	champMail.setAttribute("placeholder", "josé-dupont@gmail.com");
+	const labelEmail = document.createElement("label");
+	labelEmail.innerHTML = "E-mail :";
+	const champEmail = document.createElement("input");
+	champEmail.setAttribute("type", "email");
+	champEmail.setAttribute("name", "E-mail");
+	champEmail.setAttribute("placeholder", "josé-dupont@gmail.com");
+	const labelObjet = document.createElement("label");
+	labelObjet.innerHTML = "Objet :";
 	const champObjet = document.createElement("input");
 	champObjet.setAttribute("type", "Objet");
 	champObjet.setAttribute("name", "Objet");
 	champObjet.setAttribute("placeholder", "Objet");
+	const labelMessage = document.createElement("label");
+	labelMessage.innerHTML = "Message :";
 	const champMessage = document.createElement("input");
 	champMessage.setAttribute("type", "Message");
 	champMessage.setAttribute("name", "Message");
@@ -239,11 +255,18 @@ const createForm = () => {
 		alert("votre message a bien été envoyé.");
 	});
 
-	formId.appendChild(champNom);
-	formId.appendChild(champPrenom);
+	formId.appendChild(formNom);
+	formNom.appendChild(labelNom);
+	formNom.appendChild(champNom);
+	formId.appendChild(formPrenom);
+	formPrenom.appendChild(labelPrenom);
+	formPrenom.appendChild(champPrenom);
 
-	formMessage.appendChild(champMail);
+	formMessage.appendChild(labelEmail);
+	formMessage.appendChild(champEmail);
+	formMessage.appendChild(labelObjet);
 	formMessage.appendChild(champObjet);
+	formMessage.appendChild(labelMessage);
 	formMessage.appendChild(champMessage);
 
 	form.appendChild(formTitle);
@@ -284,9 +307,10 @@ function createMainApp() {
 		menuElement.setAttribute("id", item.id);
 		menuElement.innerHTML = item.name;
 		menuElement.addEventListener("click", () => {
-			menuIsVisible = false;
 			mainApp.innerHTML = "";
 			mainApp.appendChild(item.link);
+			menuIsVisible = false;
+			globalMenu.classList.remove("visible");
 		});
 		globalMenu.appendChild(menuElement);
 	});
