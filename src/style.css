@@ -120,7 +120,8 @@
   padding-bottom: 50px;
   height: 60%;
   width: 80%;
-  border:solid #042650;
+  border:2px dashed rgb(143, 193, 233);
+  border-radius: 0 50px 0 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
