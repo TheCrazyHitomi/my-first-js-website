@@ -203,8 +203,10 @@ const createCatPage = () => {
 };
 
 const createForm = () => {
+	const divForm = document.createElement("div");
+	divForm.classList.add("div-form");
+	divForm.classList.add("main-app");
 	const form = document.createElement("div");
-	form.classList.add("main-app");
 	form.classList.add("form");
 	const formTitle = document.createElement("h1");
 	formTitle.classList.add("form-title");
@@ -227,6 +229,7 @@ const createForm = () => {
 	champNom.setAttribute("name", "Nom");
 	champNom.setAttribute("placeholder", "Dupont");
 	const champPrenom = document.createElement("input");
+	champPrenom.classList.add("champ-nom");
 	champPrenom.setAttribute("type", "Prénom");
 	champPrenom.setAttribute("name", "Prénom");
 	champPrenom.setAttribute("placeholder", "José");
@@ -235,12 +238,14 @@ const createForm = () => {
 	const labelEmail = document.createElement("label");
 	labelEmail.innerHTML = "E-mail :";
 	const champEmail = document.createElement("input");
+	champEmail.classList.add("champ-nom");
 	champEmail.setAttribute("type", "email");
 	champEmail.setAttribute("name", "E-mail");
 	champEmail.setAttribute("placeholder", "josé-dupont@gmail.com");
 	const labelObjet = document.createElement("label");
 	labelObjet.innerHTML = "Objet :";
 	const champObjet = document.createElement("input");
+	champObjet.classList.add("champ-nom");
 	champObjet.setAttribute("type", "Objet");
 	champObjet.setAttribute("name", "Objet");
 	champObjet.setAttribute("placeholder", "Objet");
@@ -258,6 +263,12 @@ const createForm = () => {
 		alert("votre message a bien été envoyé.");
 	});
 
+	divForm.appendChild(form);
+	form.appendChild(formTitle);
+	form.appendChild(formId);
+	form.appendChild(formMessage);
+	form.appendChild(formButton);
+
 	formId.appendChild(formNom);
 	formNom.appendChild(labelNom);
 	formNom.appendChild(champNom);
@@ -271,11 +282,6 @@ const createForm = () => {
 	formMessage.appendChild(champObjet);
 	formMessage.appendChild(labelMessage);
 	formMessage.appendChild(champMessage);
-
-	form.appendChild(formTitle);
-	form.appendChild(formId);
-	form.appendChild(formMessage);
-	form.appendChild(formButton);
 
 	return form;
 };

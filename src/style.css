@@ -1,11 +1,26 @@
 * {
     box-sizing: border-box;
   }
+  *::-webkit-scrollbar {
+    width: 20px;
+    border-radius: 20px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: linear-gradient(rgba(1, 152, 253, 0.2), rgba(0, 0, 0, 0.2));
+    border-radius: 20px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, rgba(1, 152, 253, 0.2), white, rgba(0, 0, 0, 0.2));
+    border-radius: 10px;
+  }
   body {
     padding: 0;
     margin: 0;
     font-family: roboto, sans-serif;
     background: linear-gradient(white, rgb(185, 233, 248));
+    cursor: pointer;
   }
   .header-title {
     padding: 0;
@@ -80,7 +95,7 @@
 }
 .menu-element{
   border-bottom: 2px solid grey;
-  cursor: pointer;
+  cursor: grab;
   font-size: 1.1em;
   padding: 15px 30px;
   list-style: none;
@@ -88,10 +103,86 @@
   transition: all 200ms;
 }
 .main-app{
-      margin-top: 150px;
-      min-height: auto;
+  margin-top: 150px;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.div-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.form{
+  margin: 150px 10% 30px 10%;
+  padding-bottom: 50px;
+  height: 60%;
+  width: 80%;
+  border:solid #042650;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.form-id{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+}
+.form-nom{
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+}
+.form-prenom{
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.champ-nom{
+  width: auto;
+  border-radius: 0 10px 0 10px;
+  border-color: rgba(3, 98, 161, 0.082);
+  background: linear-gradient(rgba(1, 152, 253, 0.2), rgba(0, 0, 0, 0.2));
 }
 
+.form-message{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: stretch;
+}
+.champ-message{
+  height: 200px;
+  width:max-content;
+  border-radius: 0 10px 0 10px;
+  border-color: rgba(3, 98, 161, 0.082);
+  background: linear-gradient(rgba(1, 152, 253, 0.2), rgba(0, 0, 0, 0.2));
+}
+.form-button{
+  border: none;
+    border-radius: 0  40px 40px 40px;
+    height: 40px;
+    background: radial-gradient(at 0% 0%, rgb(105, 135, 190) 20px, rgb(37, 58, 116) 60%, #042650 80%);
+    width: 15%;
+    transition: 0.2s ease-in;
+    margin-top: 20px;
+    color: rgb(151, 182, 240);
+    box-shadow: rgb(43, 63, 83, 0.5) 7px 8px 12px;
+}
+.form-button:hover {
+  background: radial-gradient(at 0% 0%, rgb(158, 187, 241) 20px, rgb(61, 86, 155) 60%, #103666 80%);
+  color: rgb(117, 151, 209);
+}
   .intro{
     font-family: Georgia, 'Times New Roman', Times, serif;
   }
@@ -115,6 +206,7 @@
         width: 80%;
   }
   .filter-button{
+    cursor: pointer;
     border: none;
     border-radius: 0  25px 25px 25px;
     height: 50px;
@@ -130,6 +222,7 @@
     flex-wrap: wrap;
   }
   .card {
+    cursor: grab;
     border-radius: 100px;
     width: 200px;
     margin: 20px;
@@ -171,6 +264,7 @@
   }
 
   .cardButton {
+    cursor: grabbing;
     border: none;
     border-radius: 0  40px 40px 40px;
     height: 80px;
@@ -185,45 +279,6 @@
     background: radial-gradient(at 0% 0%, rgb(158, 187, 241) 20px, rgb(61, 86, 155) 60%, #103666 80%);
     color: rgb(117, 151, 209);
   }
-.form{
-  height: 60%;
-  width: 90%;
-  border:solid #042650;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.form-id{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: space-between;
-}
-.form-nom{
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-}
-.form-prenom{
-  width: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-}
-.form-message{
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: stretch;
-}
-.champ-message{
-  
-}
   footer {
     bottom:0;
     /* position: fixed; */
